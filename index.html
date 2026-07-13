@@ -1,9 +1,47 @@
-<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>פרוטוקול הקיץ — כלי הפקה</title>
-<style>body{background:#0d0f12;color:#fff;font-family:sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;gap:20px}
-a{background:#8bd346;color:#0d0f12;padding:16px 32px;border-radius:12px;text-decoration:none;font-weight:800;font-size:18px}</style>
-</head><body>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0f12;--card:#1a1e25;--border:#262b34;--text:#f2f4f7;--muted:#8b93a1;--accent:#8bd346;--accent-soft:rgba(139,211,70,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Heebo',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:24px}
+h1{font-size:24px;font-weight:900}
+.sub{color:var(--muted);font-size:14px;text-align:center;margin-top:-16px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:99px;padding:6px 16px;font-size:12.5px;color:var(--muted);font-weight:700}
+.stat b{color:var(--accent)}
+.cards{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;max-width:640px}
+a.card{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 24px;text-decoration:none;color:var(--text);width:260px;transition:border-color .15s,transform .15s}
+a.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+a.card .ic{font-size:28px}
+a.card .ti{font-size:17px;font-weight:800}
+a.card .de{font-size:12.5px;color:var(--muted);line-height:1.5}
+</style>
+</head>
+<body>
 <h1>☀️ פרוטוקול הקיץ</h1>
-<a href="teleprompter.html">🎬 טלפרומפטר</a>
-<a href="cockpit.html">✅ קוקפיט צילומים</a>
-</body></html>
+<div class="sub">כלי ההפקה של אביאל עמירה — WNBF Pro</div>
+<div class="stats">
+  <div class="stat"><b>16</b> פרקים</div>
+  <div class="stat"><b>15</b> מצגות</div>
+  <div class="stat"><b>11</b> בונוסים</div>
+  <div class="stat"><b>10</b> רילסים</div>
+</div>
+<div class="cards">
+  <a class="card" href="teleprompter.html">
+    <span class="ic">🎬</span>
+    <span class="ti">טלפרומפטר</span>
+    <span class="de">פרק 0 + 15 ימי הקורס, שקף-אחר-שקף. מהירות גלילה מותאמת ומצב עריכה לשינוי טקסט ישירות במסך.</span>
+  </a>
+  <a class="card" href="cockpit.html">
+    <span class="ic">✅</span>
+    <span class="ti">קוקפיט צילומים</span>
+    <span class="de">צ'קליסט מלא ליום ההפקה, כל המצגות, כל הבונוסים, ו-10 רילסים נבחרים להעלאה לאינסטגרם.</span>
+  </a>
+</div>
+</body>
+</html>
