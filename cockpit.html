@@ -62,17 +62,19 @@ h1 span{color:var(--accent)}
   <div class="ptxt"><span id="ptxt">0/0</span><span id="phint">בהצלחה 💪</span></div>
   <div class="hbtns">
     <button id="editToggle" onclick="toggleEditMode()">✏️ ערוך צ'קליסט</button>
+    <button onclick="document.getElementById('slides-section').scrollIntoView({behavior:'smooth'})">📊 מצגות</button>
+    <button onclick="document.getElementById('bonus-section').scrollIntoView({behavior:'smooth'})">🎁 בונוסים</button>
+    <button onclick="document.getElementById('app').scrollIntoView({behavior:'smooth'})">☑️ צ'קליסט</button>
   </div>
 </div></header>
-<div class="wrap" id="app"></div>
 
 <div class="wrap">
-  <div class="block slides-block">
+  <div class="block slides-block" id="slides-section">
     <div class="bhead"><div class="bnum">📊</div><b>כל המצגות — פרוטוקול הקיץ</b><span class="tm">15 ימים</span></div>
     <div class="bsub">לחיצה פותחת את ה-PDF — לצפייה בזמן הקלטה או לשליחה למשתתפים.</div>
     <div class="linkgrid" id="slidesGrid"></div>
   </div>
-  <div class="block bonus-block">
+  <div class="block bonus-block" id="bonus-section">
     <div class="bhead"><div class="bnum">🎁</div><b>כל הבונוסים</b><span class="tm">מדריכים + גיליון</span></div>
     <div class="bsub">כל חומרי הליווי במקום אחד — מגיליון המעקב ועד מדריך היום שאחרי.</div>
     <div class="linkgrid">
@@ -90,6 +92,8 @@ h1 span{color:var(--accent)}
     </div>
   </div>
 </div>
+
+<div class="wrap" id="app"></div>
 
 <script>
 const BLOCKS=[
@@ -126,21 +130,7 @@ const BLOCKS=[
  ["יום 13 — אסטרטגיית היציאה, Reverse Dieting",null,13],
  ["יום 14 — ניהול משברים, מעידה מול נפילה","🎬 גם רילס נפרד",14],
  ["יום 15 — סיכום + הצעת הליווי המלא","אחרון בכוונה — אתה הכי משוחרר, וזו המכירה",15]]},
-{n:"☕",t:"הפסקה קצרה",tm:"15 דק'",sub:"לפני צילומי המטבח — אנרגיה אחרת לגמרי.",items:[["נחתי, שתיתי מים"]]},
-{n:"ג",t:"צילומי מטבח — ספר המתכונים",tm:"1.5-2 שעות",sub:"ליד חלון, אור טבעי, רקע פשוט. כל מנה: מלמעלה + זווית 45°. אלה 10 המנות הכי מצטלמות מהספר:",items:[
- ["הפנקייק המושלם עשיר בחלבון"],
- ["מוס חלבון וניל פירות יער"],
- ["גלידת פרו-לייט"],
- ["סופלה שוקולד עשיר בחלבון"],
- ["Trouble Double — טוסט טונה קראנצ'י"],
- ["פיצה אישית מבצק בטטה"],
- ["טורטייה עוף מקסיקני עם סלסה"],
- ["רצועות עוף בסילאן וסומאק"],
- ["סלמון בקרמל מיסו"],
- ["סלט עוף עם אבוקדו ותרד"],
- ["⚖️ צלחת נפח — אותן קלוריות, נפח כפול","קישור ישיר ליום 7, שווה תמונה נפרדת"],
- ["צילום יד-מחזיקה-צלחת × 2","לקאברים"]]},
-{n:"ד",t:"10 רילסים נבחרים מתוך הקורס",tm:"תוך כדי הצילום",sub:"אחרי כל פרק מסומן למעלה — טייק נוסף קצר, רק על הקטע הזה. פירוט מלא ב-\"10 רילסים מהקורס.md\". מסודר לפי חוזק ההוק.",reels:true,items:[
+{n:"ג",t:"10 רילסים נבחרים מתוך הקורס",tm:"תוך כדי הצילום",sub:"אחרי כל פרק מסומן למעלה — טייק נוסף קצר, רק על הקטע הזה. פירוט מלא ב-\"10 רילסים מהקורס.md\". מסודר לפי חוזק ההוק.",reels:true,items:[
  ["7,700 קלוריות — הפיזיקה שסוגרת את הראש","20-25 שנ' · ערך עם פאנץ'",1],
  ["למה המשקל שלך משקר לך","25-30 שנ' · ערך עם פאנץ'",1],
  ["החדר כושר הוא רק 5% מהתוצאה שלך","25-30 שנ' · ערך עם פאנץ'",4],
@@ -153,7 +143,7 @@ const BLOCKS=[
  ["אנלוגיית הפנצ'ר — מעידה מול נפילה","25-30 שנ' · דמות / סיפור אישי",14]]},
 {n:"✅",t:"אחרי הצילום",tm:"20 דק'",sub:"לא נוגעים בכלום לפני גיבוי.",items:[
  ["גיבוי הכל לענן"],
- ["4 תיקיות: פרוטוקול-פרקים / מטבח / רילסים / חומרי-שיווק"],
+ ["3 תיקיות: פרוטוקול-פרקים / רילסים / חומרי-שיווק"],
  ["לשלוח את 5 המדריכים הנלווים לקבוצה (2, 3, 5, 7, 12)"],
  ["לסמן וי על יום ההפקה במרכז ההשקה 🎉"]]}
 ];
