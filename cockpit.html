@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>קוקפיט צילומים 🎬 — פרוטוקול הקיץ</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0f12;--card:#1a1e25;--border:#262b34;--text:#f2f4f7;--muted:#8b93a1;
+--accent:#8bd346;--accent-soft:rgba(139,211,70,.12);--green:#34d399;--green-soft:rgba(52,211,153,.12);--gold:#ffd54d;--gold-soft:rgba(255,213,77,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Heebo',sans-serif;padding-bottom:40px}
+.wrap{max-width:700px;margin:0 auto;padding:0 16px}
+header{padding:24px 0 16px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(13,15,18,.97);backdrop-filter:blur(10px);z-index:10}
+h1{font-size:19px;font-weight:900}
+h1 span{color:var(--accent)}
+.sub{font-size:12.5px;color:var(--muted);margin-top:2px}
+.track{height:9px;background:#07080a;border-radius:99px;overflow:hidden;margin-top:12px}
+.fill{height:100%;background:linear-gradient(90deg,var(--accent),#c8f06a);width:0%;transition:width .4s}
+.ptxt{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px}
+.block{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin:14px 0}
+.bhead{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.bnum{background:var(--accent);color:#0d0f12;font-weight:900;font-size:13px;min-width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center}
+.bhead b{font-size:15.5px}
+.bhead .tm{margin-right:auto;font-size:11.5px;color:var(--muted);background:var(--accent-soft);color:var(--accent);padding:3px 9px;border-radius:99px;font-weight:700;white-space:nowrap}
+.bsub{font-size:12.5px;color:var(--muted);margin-bottom:10px;line-height:1.6}
+.it{display:flex;gap:11px;padding:8px 0;align-items:flex-start;cursor:pointer;border-bottom:1px dashed var(--border)}
+.it:last-child{border-bottom:none}
+.it .bx{min-width:22px;height:22px;border-radius:7px;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;color:transparent;margin-top:1px;flex-shrink:0}
+.it.ck .bx{background:var(--green);border-color:var(--green);color:#0d0f12}
+.it .tx{font-size:14px;line-height:1.5}
+.it.ck .tx{color:var(--muted);text-decoration:line-through}
+.it .tx small{display:block;color:var(--muted);font-size:12px;text-decoration:none}
+.it .tx .guide{display:inline-block;margin-top:4px;background:var(--gold-soft);color:var(--gold);font-size:11.5px;font-weight:700;border-radius:8px;padding:2px 8px}
+.chip{display:flex;align-items:center;gap:8px;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:12.5px;border-radius:10px;padding:8px 12px;margin:6px 0}
+.chip.g{background:var(--green-soft);color:var(--green)}
+.dnum{font-size:11px;background:#07080a;border:1px solid var(--border);color:var(--muted);border-radius:7px;padding:2px 8px;font-weight:800;white-space:nowrap;margin-top:2px}
+.reset{display:block;margin:22px auto 0;background:none;border:1px solid var(--border);color:var(--muted);font-family:inherit;font-size:12px;padding:8px 18px;border-radius:99px;cursor:pointer}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>☀️ קוקפיט צילומים — <span>פרוטוקול הקיץ</span></h1>
+  <div class="sub">16 פרקים, שקף-אחר-שקף. מסמנים וממשיכים — בלי לחשוב.</div>
+  <div class="track"><div class="fill" id="fill"></div></div>
+  <div class="ptxt"><span id="ptxt">0/0</span><span id="phint">בהצלחה 💪</span></div>
+</div></header>
+<div class="wrap" id="app"></div>
+<script>
+const BLOCKS=[
+{n:"0",t:"סטאפ — לפני הכל",tm:"15 דק'",sub:"לא מדלגים על בדיקת הסאונד. סרטון בלי סאונד = יום מבוזבז.",items:[
+ ["טלפון מוטען 100% + לפחות 30GB פנויים","הפרקים ארוכים יותר מהאתגר — קבצים כבדים יותר"],
+ ["חצובה בגובה עיניים — לא מלמטה"],
+ ["מיקרופון: הקלטת בדיקה 10 שניות + האזנה באוזניות","זה הצ'ק הכי חשוב של היום"],
+ ["טלפרומפטר.html פתוח במכשיר שני, צמוד לעדשה"],
+ ["המצגות (PDF) פתוחות ומוכנות למעבר בין שקפים בזמן אמת"],
+ ["3 חולצות מוכנות (מחליפים כל כמה פרקים)"],
+ ["מים + חטיף בהישג יד"],
+ ["נא לא להפריע בשני המכשירים"]]},
+{n:"א",t:"מושב 1 — פרק 0 עד יום 7",tm:"2.5-3 שעות",sub:"קרא פסקה → אמור בשפה שלך → המשך. טייק אחד טוב מספיק. טעית? עצור 2 שניות, חזור לתחילת המשפט — חותכים בעריכה.",items:[
+ ["פרק 0 — אני מבין למה זה לא עבד לכם","אין שקפים, פנייה ישירה למצלמה. הפרק הכי חשוב ליצירת אמון",0],
+ ["יום 1 — הפיזיקה של החיטוב, 7,700 קלוריות",null,1],
+ ["יום 2 — מערכת הבקרה, Google Sheets","📎 להזכיר: מדריך מעקב התקדמות",2],
+ ["יום 3 — חסינות סביבתית, ניקוי המטבח","📎 להזכיר: המדריך לעגלה מנצחת",3],
+ ["SHIRT"],
+ ["יום 4 — TDEE, החדר כושר הוא 5%","כולל הצעת תוכנית האימונים (חינם / 99 ש\"ח)",4],
+ ["יום 5 — LBM ו-DIAAS, חלבון כמו PRO","📎 להזכיר: 50+ גוונים של חלבון",5],
+ ["BREAK"],
+ ["יום 6 — תקציב אנרגטי, 80/20","כולל הדוגמה האישית שלך — תכין את המספרים מראש!",6],
+ ["יום 7 — נפח מזון, צפיפות קלורית","📎 להזכיר: ספר המתכונים",7]]},
+{n:"🍴",t:"הפסקת צהריים",tm:"30-40 דק'",sub:"לאכול אמיתי. המושב הבא דורש אותה רמת אנרגיה כמו הראשון.",items:[["אכלתי, שתיתי, חזרתי"]]},
+{n:"ב",t:"מושב 2 — יום 8 עד יום 15",tm:"3-3.5 שעות",sub:"אותו קצב. הפרקים האחרונים (13-15) הכי רגשיים — תן להם לנשום.",items:[
+ ["SHIRT"],
+ ["יום 8 — ניהול חשקים, טכניקת 10 הדקות",null,8],
+ ["יום 9 — אימונים בחיטוב, לשמור על הברזל",null,9],
+ ["יום 10 — סטרס ושינה",null,10],
+ ["BREAK"],
+ ["יום 11 — אסטרטגיית ה-Refeed",null,11],
+ ["יום 12 — חיים חברתיים, Pre-Game","📎 להזכיר: המדריך לאלכוהול ויציאות",12],
+ ["SHIRT"],
+ ["יום 13 — אסטרטגיית היציאה, Reverse Dieting",null,13],
+ ["יום 14 — ניהול משברים, מעידה מול נפילה",null,14],
+ ["יום 15 — סיכום + הצעת הליווי המלא","אחרון בכוונה — אתה הכי משוחרר, וזו המכירה",15]]},
+{n:"☕",t:"הפסקה קצרה",tm:"15 דק'",sub:"לפני צילומי המטבח — אנרגיה אחרת לגמרי.",items:[["נחתי, שתיתי מים"]]},
+{n:"ג",t:"צילומי מטבח — ספר המתכונים",tm:"1.5-2 שעות",sub:"ליד חלון, אור טבעי, רקע פשוט. כל מנה: מלמעלה + זווית 45°. אלה 10 המנות הכי מצטלמות מהספר:",items:[
+ ["הפנקייק המושלם עשיר בחלבון"],
+ ["מוס חלבון וניל פירות יער"],
+ ["גלידת פרו-לייט"],
+ ["סופלה שוקולד עשיר בחלבון"],
+ ["Trouble Double — טוסט טונה קראנצ'י"],
+ ["פיצה אישית מבצק בטטה"],
+ ["טורטייה עוף מקסיקני עם סלסה"],
+ ["רצועות עוף בסילאן וסומאק"],
+ ["סלמון בקרמל מיסו"],
+ ["סלט עוף עם אבוקדו ותרד"],
+ ["⚖️ צלחת נפח — אותן קלוריות, נפח כפול","קישור ישיר ליום 7, שווה תמונה נפרדת"],
+ ["צילום יד-מחזיקה-צלחת × 2","לקאברים"]]},
+{n:"✅",t:"אחרי הצילום",tm:"20 דק'",sub:"לא נוגעים בכלום לפני גיבוי.",items:[
+ ["גיבוי הכל לענן"],
+ ["3 תיקיות: פרוטוקול-פרקים / מטבח / חומרי-שיווק"],
+ ["לשלוח את 5 המדריכים הנלווים לקבוצה (2, 3, 5, 7, 12)"],
+ ["לסמן וי על יום ההפקה במרכז ההשקה 🎉"]]}
+];
+const KEY='cockpitProtocol16';
+const store={get(){return JSON.parse(localStorage.getItem(KEY)||'{}')},set(k,v){const s=this.get();s[k]=v;localStorage.setItem(KEY,JSON.stringify(s))}};
+let total=0;
+function render(){
+  const s=store.get(); let done=0; total=0;
+  document.getElementById('app').innerHTML=BLOCKS.map((b,bi)=>`
+   <div class="block"><div class="bhead"><div class="bnum">${b.n}</div><b>${b.t}</b><span class="tm">${b.tm}</span></div>
+   <div class="bsub">${b.sub}</div>
+   ${b.items.map((it,ii)=>{
+     if(it[0]==="BREAK") return `<div class="chip">☕ הפסקה 5 דקות — האנרגיה נשמעת במיקרופון</div>`;
+     if(it[0]==="SHIRT") return `<div class="chip g">👕 החלפת חולצה! שלא ייראה שהכל מאותה ישיבה</div>`;
+     total++;
+     const id=`b${bi}i${ii}`; const ck=s[id];
+     if(ck) done++;
+     return `<div class="it${ck?' ck':''}" data-id="${id}"><div class="bx">✓</div><div class="tx">${it[0]}${it[1]?`<small>${it[1]}</small>`:''}</div>${it[2]!=null?`<span class="dnum">${it[2]===0?'פרק 0':'יום '+it[2]}</span>`:''}</div>`;
+   }).join('')}</div>`).join('')+`<button class="reset" onclick="if(confirm('לאפס את כל הסימונים?')){localStorage.removeItem('${KEY}');render()}">איפוס יום צילומים</button>`;
+  document.querySelectorAll('.it').forEach(el=>el.onclick=()=>{store.set(el.dataset.id,!store.get()[el.dataset.id]);render()});
+  document.getElementById('fill').style.width=(done/total*100)+'%';
+  document.getElementById('ptxt').textContent=`${done}/${total} בוצעו`;
+  const hints=["בהצלחה 💪","יאללה, בתנופה 🔥","חצי דרך — אל תוריד אנרגיה","כמעט שם 🚀","סיימת! גיבוי ולנוח 🏆"];
+  document.getElementById('phint').textContent=hints[Math.min(Math.floor(done/total*4),4)]||hints[0];
+}
+render();
+</script>
+</body>
+</html>
